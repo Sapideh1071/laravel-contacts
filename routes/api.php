@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/contacts', function (Request $request) {
+    $search = $request->query('search', '');
+    $contacts = App\Models\Contact::where('name', 'like', "%$search%")->get();
+    return  response()->json($contacts);
+});
+
+Route::delete('/contacts/{id}', function (Request $request, $id) {
+    App\Models\Contact::where('id', $id)->delete();
+    return  response()->json([]);
+});
