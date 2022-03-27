@@ -25,7 +25,7 @@
                 @endforeach 
                 </div>  
             </div>
-            <div class="edit-form">
+            <div class="edit-form" style="display:none">
                 <form name="edit-form">
                     <input type="hidden" name="id">
                     <label for="name">Name:</label><br>
